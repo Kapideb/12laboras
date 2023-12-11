@@ -161,29 +161,6 @@
                 calculateAverage();
             }
 
-            function calculateAverage() {
-                const marks = [
-                    parseFloat(document.getElementById('Kursas').value),
-                    parseFloat(document.getElementById('Semestras').value),
-                    parseFloat(document.getElementById('Pažymis').value),
-                    parseFloat(document.getElementById('Metai').value),
-                    parseFloat(document.getElementById('AlausPerVienaVakara').value)
-                ];
-
-                const average = marks.reduce((total, mark) => total + mark, 0) / marks.length;
-
-                const averageElement = document.getElementById('average');
-                averageElement.textContent = `Vidurkis: ${average.toFixed(2)}`;
-
-                if (average < 5) {
-                    averageElement.style.color = 'red';
-                } else if (average >= 5 && average < 8) {
-                    averageElement.style.color = 'orange';
-                } else {
-                    averageElement.style.color = 'green';
-                }
-            }
-
         </script>
 
     </div>
