@@ -1,0 +1,217 @@
+<!-- Ugnius Sliesaravičius, EIf-22 -->
+<!DOCTYPE html>
+<html lang="lt">
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/print.css" media="print">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mano Svetainė</title>
+</head>
+
+<body>
+    <div id="clock"></div>
+    <header id="header" class="d-flex flex-column justify-content-center">
+        <div class="logo">
+            <img class="logo" src="assets/images/vgtu.jpg" alt="Logo">
+        </div>
+        <div class="navbar">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+
+                        <li class="nav-item"><a class="nav-link" href="#about">APIE</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#portfolio">PORTFOLIO</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#services">PASLAUGOS</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">KONTAKTAI</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="social-links">
+                <a href="https://www.facebook.com/" target="_blank"><img src="assets/images/fb.png" alt="Facebook"
+                        width="30" height="30"></a>
+                <a href="https://www.twitter.com/" target="_blank"><img src="assets/images/twitter.png" alt="Twitter"
+                        width="30" height="30"></a>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <section id="about" class="section">
+            <div class="container">
+                <h2>Aprašymas</h2>
+                <p>Mano profesinės savybės, darbo istorija</p>
+            </div>
+            <div class="math">
+                \(\int_{D} ( \nabla \cdot F) \, dv = \int_{\partial D} F \cdot n \, dS\)
+                <!-- int sudaro integrala kuriame irasom {D}, kad sis butu apacioje -->
+                <!-- Nabla sudaro trikampi, kuris yra dauginamas is F-->
+                <!-- cdot sudaro taska, kad paaiskintume jog sis yra dauginamas -->
+                <!-- int vel sudaro integrala-->
+                <!-- partial D padaro taip, kad galetume rasyt 2 raides po integralo ir toliau viskas vel kartojasi-->
+            </div>
+            <svg class="animated-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+                <!-- Your SVG content and animation attributes go here -->
+                <circle cx="50" cy="50" r="40" stroke="red" stroke-width="4" fill="red">
+                    <animate attributeName="r" from="40" to="10" dur="0.5s" begin="0s" repeatCount="indefinite" />
+                </circle>
+            </svg>
+        </section>
+
+        <section id="portfolio" class="section">
+            <div class="container">
+                <h2>Atlikti darbai</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="assets/images/laikrodis1.jpg" alt="Mano sukurta apyrankė laikrodžiui"
+                            class="img-fluid">
+                    </div>
+                    <div class="col-md-6">
+                        <img src="assets/images/kosmetika1.jpg" alt="Mano sukurtas dizainas kosmetikai"
+                            class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="section">
+            <div class="container">
+                <h2>Paslaugos</h2>
+                <p>Puslapių kūrimas</p>
+                <div class="col-md-6">
+                    <img src="assets/images/kurimas.jpg" alt="Puslapių kūrimas" class="img-fluid">
+                </div>
+                <p>Schemų darymas</p>
+                <div class="col-md-6">
+                    <img src="assets/images/schema.jpg" alt="Schema" class="img-fluid">
+                </div>
+            </div>
+        </section>
+        <div class="container">
+            <h1>Kontaktų Forma</h1>
+            <form id="contactForm">
+                <label for="Vardas">Vardas:</label>
+                <input type="text" id="Vardas" required>
+
+                <label for="Pavardė">Pavardė:</label>
+                <input type="text" id="Pavardė" required>
+
+                <label for="Gmail">El. paštas:</label>
+                <input type="email" id="Gmail" required>
+
+                <label for="Telefonas">Telefonas:</label>
+                <input type="tel" id="Telefonas" required>
+
+                <label for="Adresas">Adresas:</label>
+                <textarea id="Adresas" required></textarea>
+
+                <label for="Kursas">Kursas:</label>
+                <input type="number" id="Kursas" required>
+
+                <label for="Semestras">Semestras:</label>
+                <input type="number" id="Semestras" required>
+
+                <label for="Pažymis">Pažymis:</label>
+                <input type="number" id="Pažymis" required>
+
+                <label for="Metai">Metai:</label>
+                <input type="number" id="Metai" required>
+
+                <label for="AlausPerVienaVakara">Alaus per vakarą išgeriat:</label>
+                <input type="number" id="AlausPerVienaVakara" required>
+
+                <button type="button" onclick="saveContact(); updateAverages()">Saugoti</button>
+
+
+            </form>
+
+            <div id="result"></div>
+            <div id="average"></div>
+        </div>
+
+        <script src="script.js"></script>
+
+        <script>
+            function validateAndSave() {
+                const emailInput = document.getElementById('Gmail');
+                const phoneInput = document.getElementById('Telefonas');
+                const addressInput = document.getElementById('Adresas');
+
+                if (!isValidEmail(emailInput.value)) {
+                    alert('Neteisingas el. pašto adresas');
+                    return;
+                }
+
+                if (!isValidPhone(phoneInput.value)) {
+                    alert('Neteisingas telefono numeris');
+                    return;
+                }
+
+                if (!isValidAddress(addressInput.value)) {
+                    alert('Neteisingas adresas');
+                    return;
+                }
+
+                saveContact();
+                calculateAverage();
+            }
+
+            function calculateAverage() {
+                const marks = [
+                    parseFloat(document.getElementById('Kursas').value),
+                    parseFloat(document.getElementById('Semestras').value),
+                    parseFloat(document.getElementById('Pažymis').value),
+                    parseFloat(document.getElementById('Metai').value),
+                    parseFloat(document.getElementById('AlausPerVienaVakara').value)
+                ];
+
+                const average = marks.reduce((total, mark) => total + mark, 0) / marks.length;
+
+                const averageElement = document.getElementById('average');
+                averageElement.textContent = `Vidurkis: ${average.toFixed(2)}`;
+
+                if (average < 5) {
+                    averageElement.style.color = 'red';
+                } else if (average >= 5 && average < 8) {
+                    averageElement.style.color = 'orange';
+                } else {
+                    averageElement.style.color = 'green';
+                }
+            }
+
+        </script>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="script.js"></script>
+
+    <footer>
+        <section id="contact" class="section">
+            <div class="container">
+                <h2>Kontaktai</h2>
+                <p><a>Adresas: Saulėtekio Al. 11</a></p>
+                <p><a>Numeris: +370 000 000</a></p>
+                <p><a>Gmail: manogmail@gmail.com</a></p>
+                <button id="print-button" onclick="window.print()">Spausdinti</button>
+            </div>
+            <ul class="footer-icons">
+                <li><a href="#" target="_blank"><img src="assets/images/fb.png" alt="Facebook"></a></li>
+                <li><a href="#" target="_blank"><img src="assets/images/twitter.png" alt="Twitter"></a></li>
+            </ul>
+            <div class="kurejas">
+                <p>Puslapio kurėjas: Ugnius Sliesaravičius EIf-22</p>
+            </div>
+        </section>
+    </footer>
+</body>
+
+</html>
