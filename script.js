@@ -9,7 +9,7 @@ function updateClock() {
     document.getElementById('clock').innerText = formattedTime;
 }
 
-setInterval(updateClock, 1000);
+setInterval(updateClock, 1000); 
 
 updateClock();
 
